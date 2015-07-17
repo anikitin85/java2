@@ -99,4 +99,3 @@ class Suspend {
 		System.out.println("Main thread exiting.");
 	}
 }
-	}
