@@ -1,0 +1,23 @@
+import java.io.IOException;
+
+class Hyphen1 {
+	public static void main(String[] args) throws IOException {
+		if (args.length != 2) {
+			System.out.println("Usage: Hyphen1 source target");
+			return;
+		}
+		
+		try {
+			FileInputStream fis = new FileInputStream(args[0]);
+			FileOutputStream fos = new FileOutputStream(args[1]);
+			int c;
+			while (c = fis.read() != -1) {
+				if ((char) c == ' ') c = '-';
+				fos.write(c);
+			}
+		} finally {
+			if (fis != null) fis.close();
+			if (fos != null) fos.close();
+		}
+	}
+}
