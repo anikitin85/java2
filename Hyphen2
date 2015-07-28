@@ -1,0 +1,19 @@
+import java.io.IOException;
+
+class Hyphen2 {
+	public static void main(String[] args) throws IOException {
+		if (args.length != 2) {
+			System.out.println("Usage: Hyphen2 source target");
+			return;
+		}
+		
+		try (FileReader fr = new FileReader(args[0]);
+			FileWriter fw = new FileWriter(args[1])) {
+			int c;
+			while (c = fr.read() != -1) {
+				if ((char) c == ' ') c = '-';
+				fw.write(c);
+			}
+		}
+	}
+}
